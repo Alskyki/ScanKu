@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Lembar dokumen -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,30 L62,30 L72,40 L72,78 L38,78 Z" />
+    <!-- Lipatan sudut -->
+    <path
+        android:fillColor="#B7E4EC"
+        android:pathData="M62,30 L72,40 L62,40 Z" />
+    <!-- Garis teks -->
+    <path
+        android:fillColor="#0E8C9E"
+        android:pathData="M44,46 L58,46 L58,49 L44,49 Z" />
+    <path
+        android:fillColor="#0E8C9E"
+        android:pathData="M44,60 L66,60 L66,63 L44,63 Z" />
+    <path
+        android:fillColor="#0E8C9E"
+        android:pathData="M44,68 L62,68 L62,71 L44,71 Z" />
+    <!-- Garis pemindai -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M31,53 L79,53 L79,56 L31,56 Z" />
+</vector>
