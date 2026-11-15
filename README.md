@@ -1,65 +1,64 @@
-# ScanKu — Aplikasi Scanner Dokumen untuk Android
+# ScanKu
 
-Aplikasi scanner dokumen (Kotlin + Jetpack Compose) dengan alur kerja seperti aplikasi scanner populer:
-foto dokumen, potong otomatis, beri filter, gabung jadi PDF, lalu bagikan.
+**ScanKu** adalah aplikasi pemindai dokumen untuk Android yang memungkinkan pengguna memindai, mengedit, mengelola, dan mengonversi dokumen menjadi file PDF dengan mudah.
 
-## Fitur
+## Fitur Utama
 
-| Fitur | Cara kerja |
-|---|---|
-| Scan dengan kamera | ML Kit Document Scanner: deteksi tepi, crop dan perataan perspektif otomatis |
-| Impor dari galeri | Tersedia di dalam layar scanner |
-| Multi-halaman | Tambah halaman ke dokumen, atur urutan, hapus halaman |
-| Mode Kartu ID | Scan 2 sisi kartu sekaligus |
-| Filter | Asli, Magic, Terang, Abu-abu, Hitam Putih (ambang adaptif, tahan bayangan) |
-| Rotasi | Putar kiri/kanan, dengan opsi "filter ke semua halaman" |
-| Ekspor PDF | 4 pilihan kualitas (Kecil / Sedang / Tinggi / Asli) |
-| Atur ukuran file | Tentukan batas ukuran (100 KB – 5 MB), aplikasi mengompres otomatis |
-| Bagikan / Simpan | Share ke aplikasi lain atau simpan ke penyimpanan lewat pemilih berkas |
-| OCR | Ambil teks dari satu halaman atau seluruh dokumen, offline, bisa disalin dan dibagikan |
-| Cari dokumen | Pencarian berdasarkan nama, ubah nama, hapus |
+### 1. Document Scanner
+- Memindai dokumen menggunakan kamera.
+- Deteksi tepi dokumen secara otomatis.
+- Pemotongan (crop) otomatis.
+- Koreksi perspektif dokumen.
 
-## Cara membuka dan menjalankan
+### 2. Gallery Import
+- Mengimpor gambar dari galeri perangkat.
+- Menambahkan gambar sebagai halaman dokumen baru.
 
-1. Pasang **Android Studio** versi terbaru (Ladybug 2024.2 atau lebih baru).
-2. `File > Open` lalu pilih folder `ScanKu`.
-3. Tunggu Gradle sync selesai (butuh internet; Android Studio mengunduh Gradle 8.9 otomatis).
-4. Sambungkan HP Android (aktifkan Debugging USB) lalu tekan **Run**.
-5. Untuk membuat APK: `Build > Build Bundle(s) / APK(s) > Build APK(s)`.
+### 3. Multi-Page Scanning
+- Menggabungkan beberapa hasil scan dalam satu dokumen.
+- Menambahkan halaman baru.
+- Mengatur urutan halaman.
+- Menghapus halaman yang tidak diperlukan.
 
-Catatan:
-- Android 8.0 (API 26) ke atas.
-- Scanner dan OCR memakai Google Play Services / ML Kit, jadi butuh HP dengan Google Play Services.
-  Jika memakai emulator, pilih image yang memiliki ikon Play Store.
-- Saat pertama kali scanner dibuka, Play Services mungkin mengunduh modul scanner sebentar.
+### 4. ID Card Scanner
+- Mode khusus untuk memindai kartu identitas.
+- Memindai kedua sisi kartu dalam satu proses.
 
-## Struktur kode
+### 5. Image Filters
+Tersedia lima pilihan filter:
+- **Original:** Mempertahankan tampilan asli.
+- **Magic:** Meningkatkan tampilan dokumen.
+- **Lighten:** Mencerahkan gambar.
+- **Grayscale:** Mengubah gambar menjadi abu-abu.
+- **Black & White:** Mengubah gambar menjadi hitam putih dengan ambang adaptif untuk membantu mengurangi pengaruh bayangan.
 
-```
-app/src/main/java/com/scanku/app/
-├── MainActivity.kt          navigasi antar layar
-├── AppViewModel.kt          state aplikasi dan operasi dokumen
-├── data/
-│   ├── Models.kt            ScanDocument, ScanPage, PageFilter
-│   └── DocumentRepository.kt  penyimpanan berkas dan meta.json
-├── core/
-│   ├── ImageProcessor.kt    decode, rotasi, filter
-│   ├── PdfExporter.kt       penulis PDF (JPEG DCT) + kontrol ukuran
-│   └── OcrHelper.kt         OCR ML Kit
-└── ui/
-    ├── HomeScreen.kt        daftar dokumen, tombol scan
-    ├── DocumentScreen.kt    halaman-halaman dokumen
-    ├── PageEditorScreen.kt  filter dan rotasi
-    ├── ExportDialog.kt      ekspor PDF dan pengaturan ukuran
-    ├── OcrScreen.kt         hasil teks
-    ├── ScannerLauncher.kt   pembuka scanner ML Kit
-    └── Utils.kt, theme/Theme.kt
-```
+### 6. Image Rotation
+- Memutar halaman ke kiri atau kanan.
+- Menerapkan filter ke seluruh halaman dalam dokumen.
 
-## Ide pengembangan lanjutan
+### 7. PDF Export
+- Mengonversi dokumen hasil scan menjadi PDF.
+- Empat pilihan kualitas: Small, Medium, High, dan Original.
+- Mengatur batas ukuran file PDF dari 100 KB hingga 5 MB.
+- Kompresi otomatis untuk menyesuaikan ukuran file.
 
-- Crop manual dengan 4 titik sudut untuk gambar yang gagal terdeteksi otomatis
-- Tanda tangan dan watermark
-- Kunci PDF dengan kata sandi
-- Folder / tag dan sinkronisasi cloud
-- Ekspor ke Word atau teks dengan tata letak
+### 8. OCR (Optical Character Recognition)
+- Mengekstrak teks dari gambar dokumen.
+- Membaca teks dari satu halaman atau seluruh dokumen.
+- Menyalin hasil ekstraksi teks.
+- Membagikan hasil teks ke aplikasi lain.
+- Pemrosesan OCR menggunakan Google ML Kit.
+
+### 9. Document Management
+- Menampilkan daftar dokumen yang tersimpan.
+- Mencari dokumen berdasarkan nama.
+- Mengubah nama dokumen.
+- Menghapus dokumen beserta seluruh halamannya.
+
+### 10. Save & Share
+- Menyimpan hasil PDF melalui pemilih berkas.
+- Membagikan dokumen ke aplikasi lain yang tersedia di perangkat.
+
+---
+
+**ScanKu — Scan, Organize, and Export Your Documents.**
